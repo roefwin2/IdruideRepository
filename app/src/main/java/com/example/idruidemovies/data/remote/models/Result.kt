@@ -1,6 +1,7 @@
 package com.example.idruidemovies.data.remote.models
 
 
+import com.example.idruidemovies.domain.models.IdruideMovie
 import com.squareup.moshi.Json
 
 data class Result(
@@ -40,4 +41,17 @@ data class Result(
     val voteAverage: Double,
     @Json(name = "vote_count")
     val voteCount: Int
-)
+) {
+    companion object {
+        fun Result.toIdruideMovie() = IdruideMovie(
+            this.posterPath,
+            this.backdropPath,
+            this.title ?: "No title",
+            this.overview,
+            this.originalLanguage,
+            this.popularity,
+            this.releaseDate,
+            this.voteAverage
+        )
+    }
+}

@@ -1,6 +1,8 @@
 package com.example.idruidemovies.data.remote.models
 
 
+import com.example.idruidemovies.data.remote.models.Result.Companion.toIdruideMovie
+import com.example.idruidemovies.domain.models.IdruideMovie
 import com.squareup.moshi.Json
 
 data class TMDBMovie(
@@ -12,4 +14,10 @@ data class TMDBMovie(
     val totalPages: Int,
     @Json(name = "total_results")
     val totalResults: Int
-)
+) {
+    companion object {
+        fun TMDBMovie.toIdruideMovieList(): List<IdruideMovie> {
+            return this.results.map { it.toIdruideMovie() }
+        }
+    }
+}
