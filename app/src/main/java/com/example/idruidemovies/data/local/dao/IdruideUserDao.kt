@@ -14,7 +14,7 @@ interface IdruideUserDao {
     @Query("SELECT * FROM users")
     suspend fun getAllUsers(): List<IdruideUserEntity>
 
-    @Query("SELECT * FROM users WHERE id LIKE id")
+    @Query("SELECT * FROM users WHERE id LIKE :id")
     suspend fun getUser(id: String): IdruideUserEntity
 
     @Query("DELETE FROM users")
