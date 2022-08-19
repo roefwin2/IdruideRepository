@@ -1,4 +1,4 @@
-package com.example.idruidemovies
+package com.example.idruidemovies.presenter
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
