@@ -46,7 +46,7 @@ data class Result(
         fun Result.toIdruideMovie() = IdruideMovie(
             this.posterPath,
             this.backdropPath,
-            this.title ?: "No title",
+            this.name ?: "No title",
             this.overview,
             this.originalLanguage,
             this.popularity,
