@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -63,18 +64,18 @@ fun RatingItem(value: String) {
 fun MovieItem(movie: IdruideMovie) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp)
+            .fillMaxWidth(2f)
+            .padding(8.dp),
+        backgroundColor = Color.LightGray
     ) {
         Row() {
             Image(
-                painter = rememberAsyncImagePainter(movie.posterUrl),
+                painter = rememberAsyncImagePainter("https://image.tmdb.org/t/p/w500" + movie.posterUrl),
                 contentDescription = null,
                 modifier = Modifier.size(128.dp)
             )
             Column() {
                 Text(text = movie.title)
-                Text(text = movie.description)
                 RatingItem(value = movie.voteAverage.toString())
             }
         }
