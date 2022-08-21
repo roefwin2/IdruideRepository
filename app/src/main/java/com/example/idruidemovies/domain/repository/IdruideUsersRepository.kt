@@ -6,5 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface IdruideUsersRepository {
 
-    fun getUsers(): Flow<Resource<IdruideUserEntity>>
+    fun addAccount(idruideUserEntity: IdruideUserEntity) : Flow<Resource<Unit>>
+    fun getUsers(): Flow<Resource<List<IdruideUserEntity>>>
 }
