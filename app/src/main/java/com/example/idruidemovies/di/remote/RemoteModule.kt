@@ -21,7 +21,7 @@ object RemoteModule {
     ): IdruideMoviesApi {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create(moshi))
+            .addConverterFactory(MoshiConverterFactory.create(moshi).asLenient())
             .build()
         return retrofit.create(IdruideMoviesApi::class.java)
     }

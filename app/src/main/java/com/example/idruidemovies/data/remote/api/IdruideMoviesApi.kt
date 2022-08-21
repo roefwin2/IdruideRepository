@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface IdruideMoviesApi {
 
 
-    @GET("get-trending")
-    suspend fun getTrendsMovies() : List<TMDBMovie>
+    @GET("day?api_key=2137c23263194c5a08d0b95e2c30a275")
+    suspend fun getTrendsMovies(): TMDBMovie
 }
